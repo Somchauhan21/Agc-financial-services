@@ -6,13 +6,16 @@ class Database {
     }
 
     _connect() {
-        const db_string = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
-        mongoose.connect(db_string)
+        const db_string = process.env.MONGO_URI
+        mongoose.connect(db_string, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        })
             .then(() => {
-                console.log('[*] Connection to DB successful')
+                console.log('[*] Connection to MongoDB Atlas successful')
             })
             .catch(err => {
-                console.error('[!] Error connecting to DB: ', err)
+                console.error('[!] Error connecting to MongoDB Atlas: ', err)
             })
     }
 }
