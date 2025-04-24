@@ -1,0 +1,23 @@
+const express = require('express')
+const cors = require('cors')
+const path = require('path')
+require('dotenv').config()
+require('./database/database')
+require('./cleanup') 
+
+const app = express()
+app.use(cors())
+app.use(express.json())
+
+// for file downloads
+app.use('/f', express.static(path.join(__dirname, 'uploads')))
+
+const uploadRouter = require('./routes/upload')
+const accessRouter = require('./routes/access')
+
+app.use('/upload', uploadRouter)
+app.use('/access', accessRouter)
+
+app.listen(1234, () => {
+    console.log("[*] Server is up and running ...")
+})
