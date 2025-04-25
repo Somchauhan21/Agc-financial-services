@@ -43,7 +43,7 @@ const FileViewer = () => {
     e.preventDefault();
     setErrorMsg('');
     try {
-      const res = await axios.post('https://agc-financial-services-backend.onrender.com/access', { hash, password });
+      const res = await axios.post("https://agc-financial-services-backend.onrender.com/access", { hash, password });
       if (res.status === 200) {
         setAuthenticated(true);
         setFiles(res.data.files);
