@@ -21,7 +21,7 @@ const Upload = () => {
     formData.append('password', password);
 
     try {
-      const response = await axios.post("https://agc-financial-services-backend.onrender.com/access", formData, {
+      const response = await axios.post("https://agc-financial-services-backend.onrender.com/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" }
       });
       setLink(`${window.location.origin}/${response.data.hash}`);
