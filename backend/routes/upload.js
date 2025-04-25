@@ -35,7 +35,7 @@ router.post('/', upload.array('files'), (req, res) => {
     const fileDetails = []
     files.forEach((file) => {
         const name = file.originalname
-        const url = `http://localhost:1234/f/${file.filename}`
+        const url = `https://agc-financial-services-backend.onrender.com/f/${file.filename}`
         fileDetails.push({
             name: name,
             url: url
