@@ -90,7 +90,7 @@ const FileViewer = () => {
                   <tr key={index} className="border-t">
                     <td className="p-3">{file.name}</td>
                     <td className="p-3 text-right">
-                      <a href={file.url} download={file.name}  className="text-blue-600 hover:underline">
+                      <a href={file.url} download={file.name}  className="text-blue-600 hover:underline" target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faDownload} /> Download
                       </a>
                     </td>
