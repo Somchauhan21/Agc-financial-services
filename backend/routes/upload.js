@@ -27,6 +27,8 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage})
 
 router.post('/', upload.array('files'), (req, res) => {
+    console.log('📂 Upload Directory:', path.join(__dirname, '../uploads')); // Debug log
+    console.log('🔄 Files received:', req.files.map(f => f.originalname));
     const files = req.files
     if(files === undefined || files.length === 0) {
         return res.status(400).json({message: 'No files uploaded'})
