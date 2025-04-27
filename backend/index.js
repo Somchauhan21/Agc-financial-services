@@ -48,6 +48,7 @@ app.use(express.urlencoded({ extended: true }));
 const uploadsDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
+  console.log('📁 Created uploads directory:', uploadsDir);
 }
 
 // 4. Static File Serving (keep this before routes)
