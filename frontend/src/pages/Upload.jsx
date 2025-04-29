@@ -24,9 +24,10 @@ const Upload = () => {
       const response = await axios.post("https://agc-financial-services-backend.onrender.com/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" }
       });
-      // setLink(`${window.location.origin}/${response.data.hash}`);
+       setLink(`${window.location.origin}/${response.data.hash}`);
       //setLink(`https://agc-financial-services-backend.onrender.com/access/${response.data.hash}`);
-      setLink(`https://agc-financial-services-frontend.onrender.com/access/${response.data.hash}`);
+     // setLink(`https://agc-financial-services-frontend.onrender.com/access/${response.data.hash}`);
+      //setLink(`https://agc-financial-services-frontend.onrender.com/access/${hash}`);
       setUploaded(true);
       toast.success("✅ Files uploaded successfully!");
     } catch (err) {
